@@ -3,8 +3,9 @@
 <div class="container border border-secondary">
   <div class="row">
     <div class="container" >
-      <app-recipes *ngIf="currentPage==='recipe'" ></app-recipes>
-      <app-shopping-list *ngIf="currentPage !=='recipe'"  ></app-shopping-list>
+      <!-- <app-recipes *ngIf="currentPage==='recipe'" ></app-recipes>
+      <app-shopping-list *ngIf="currentPage !=='recipe'"  ></app-shopping-list> -->
+      <router-outlet></router-outlet>
     </div>
   </div>
   
