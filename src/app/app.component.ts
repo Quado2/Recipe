@@ -9,7 +9,7 @@ export class AppComponent {
   currentPage = 'recipe';
   title = 'Recipe';
 
-  onNavigate(feature: string) {
-    this.currentPage = feature;
-  }
+  // onNavigate(feature: string) {
+  //   this.currentPage = feature;
+  // }
 }
