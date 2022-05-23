@@ -34,4 +34,9 @@ setIngredients(ingredients: Ingredient[]){
   this.ingredients = ingredients.slice()
 }
 
+editIngredient(ingredient: Ingredient, index: number){
+  this.ingredients[index] = ingredient;
+  this.ingredientChanged.next(this.ingredients.slice());
+}
+
 }
