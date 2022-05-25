@@ -19,6 +19,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.recipes = this.recipeService.getRecipes();
     this.subscription = this.recipeService.recipeChanged.subscribe((recipes: Recipe[]) => {
+      console.log("Recipes has changed, this is the new one: \n", recipes)
       this.recipes = recipes
     })
   }
