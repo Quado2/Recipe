@@ -24,7 +24,4 @@ export class DataStorageService {
     })
   }
 
-  emitRecipeChanged(){
-    this.recipeService.emitRecipeChanged();
-  }
 }
