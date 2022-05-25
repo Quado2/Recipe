@@ -23,4 +23,8 @@ export class DataStorageService {
       this.recipeService.setRecipes(resp)
     })
   }
+
+  emitRecipeChanged(){
+    this.recipeService.emitRecipeChanged();
+  }
 }

@@ -59,7 +59,10 @@ export class RecipeService {
 
   setRecipes(recipes: Recipe[]) {
     this.recipes = recipes;
-    console.log("this just called")
     this.recipeChanged.next(this.recipes.slice());
+  }
+
+  emitRecipeChanged(){
+    this.recipeChanged.next(this.recipes);
   }
 }
