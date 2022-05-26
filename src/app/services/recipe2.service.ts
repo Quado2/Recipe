@@ -49,14 +49,15 @@ export class RecipeService2{
     this.recipes.push(recipe);
     this.recipeChanged.next(this.recipes.slice());
   }
-  
+
   updateRecipe(recipe: Recipe, index: number) {
     this.recipes[index] = recipe;
     this.recipeChanged.next(this.recipes.slice());
   }
 
   setRecipes(recipes: Recipe[]){
-    this.recipeChanged.next(recipes);
+    this.recipes = recipes
+    this.recipeChanged.next(this.recipes);
   }
 
   addIngredients(ingredients: Ingredient[]) {

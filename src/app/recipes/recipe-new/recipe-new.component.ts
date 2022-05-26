@@ -5,6 +5,7 @@ import { DataStorageService } from 'src/app/services/data-storage.service';
 import { Recipe } from '../recipe.model';
 
 import { RecipeService } from '../../services/recipe.service';
+import { RecipeService2 } from 'src/app/services/recipe2.service';
 
 @Component({
   selector: 'app-recipe-new',
@@ -18,7 +19,7 @@ export class RecipeNewComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private recipeService: RecipeService,
+    private recipeService: RecipeService2,
     private router: Router, 
     private storageService: DataStorageService
   ) {}
@@ -97,7 +98,5 @@ export class RecipeNewComponent implements OnInit {
     (<FormArray>this.recipeForm.get("ingredients")).removeAt(index)
   }
 
-  onCheckFetch(){
-    this.storageService.fetchRecipes();
-  }
+ 
 }
