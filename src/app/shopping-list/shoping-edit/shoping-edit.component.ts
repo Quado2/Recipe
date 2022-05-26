@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { RecipeService } from 'src/app/recipes/recipe.service';
+import { RecipeService } from 'src/app/services/recipe.service';
 import { Ingredient } from 'src/app/shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list.service';
 

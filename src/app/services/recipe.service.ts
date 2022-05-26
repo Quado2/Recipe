@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { DataStorageService } from '../shared/data-storage.service';
+import { RecipeService2 } from './recipe2.service';
+import { DataStorageService } from './data-storage.service';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
-import { Recipe } from './recipe.model';
+import { Recipe } from '../recipes/recipe.model';
 
 @Injectable({ providedIn: 'root' })
 export class RecipeService {
   recipeSelected = new Subject<Recipe>();
   recipeChanged = new Subject<Recipe[]>();
+  anotherChange = new Subject<any>();
 
-  private recipes: Recipe[] = [
+  recipes: Recipe[] = [
     new Recipe(
       'A test Recipe',
       'This is a great test',
@@ -29,7 +31,7 @@ export class RecipeService {
     ),
   ];
 
-  constructor(private slService: ShoppingListService,) {}
+  constructor(private slService: ShoppingListService, private recipeService2: RecipeService2) {}
 
   getRecipes() {
     return this.recipes.slice();
@@ -54,20 +56,17 @@ export class RecipeService {
   }
 
   deleteRecipe(index: number) {
-    console.log("here ran")
     this.recipes.splice(index, 1);
     this.recipeChanged.next(this.recipes.slice());
-    console.log("finished running")
   }
 
   setRecipes(recipes: Recipe[]) {
     this.recipes = recipes;
-    this.recipeChanged.next(this.recipes.slice());
+    console.log("in set recipes")
+    this.anotherChange.next("the new things")
+    this.recipeChanged.next(this.recipes);
   }
 
-  fetchRecipes(){
-    console.log("from here")
-    
-  }
+ 
 
 }
