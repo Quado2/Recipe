@@ -18,7 +18,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeNewComponent } from './recipes/recipe-new/recipe-new.component';
 import { RecipeService } from './recipes/recipe.service';
-import { DataStorageService } from './shared/data-storage.service';
 
 
 @NgModule({
@@ -43,7 +42,7 @@ import { DataStorageService } from './shared/data-storage.service';
     HttpClientModule,
     
   ],
-  providers: [ShoppingListService, RecipeService, DataStorageService],
+  providers: [ShoppingListService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

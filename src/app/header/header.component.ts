@@ -11,7 +11,7 @@ import { DataStorageService } from '../shared/data-storage.service';
 export class HeaderComponent {
   collapsed = true;
 
-  constructor(private storageService: DataStorageService, private recipeServie: RecipeService) {}
+  constructor(private storageService: DataStorageService, private recipeService: RecipeService) {}
   // @Output() featureEmit = new EventEmitter<string>();
 
   // onSelect(feature: string) {
@@ -19,11 +19,11 @@ export class HeaderComponent {
   // }
 
   onSave() {
-    this.storageService.storerRecipes();
+    this.storageService.storeRecipes();
   }
 
   onFetch() {
-    this.storageService.fetchRecipes();
+    this.recipeService.deleteRecipe(1);
   }
 
 }

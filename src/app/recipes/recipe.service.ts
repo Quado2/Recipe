@@ -54,8 +54,10 @@ export class RecipeService {
   }
 
   deleteRecipe(index: number) {
+    console.log("here ran")
     this.recipes.splice(index, 1);
     this.recipeChanged.next(this.recipes.slice());
+    console.log("finished running")
   }
 
   setRecipes(recipes: Recipe[]) {
@@ -64,7 +66,8 @@ export class RecipeService {
   }
 
   fetchRecipes(){
-
+    console.log("from here")
+    
   }
 
 }

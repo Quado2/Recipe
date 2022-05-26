@@ -11,7 +11,7 @@ export class DataStorageService {
 
   constructor(private http: HttpClient, private recipeService: RecipeService) {}
 
-  storerRecipes() {
+  storeRecipes() {
     const recipes = this.recipeService.getRecipes();
     this.http.put(this.RECIPE_URL, recipes).subscribe((respData) => {
       console.log(respData);

@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { RecipeService } from 'src/app/recipes/recipe.service';
 import { Ingredient } from 'src/app/shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list.service';
 
@@ -24,7 +25,7 @@ export class ShopingEditComponent implements OnInit, OnDestroy {
   editingIngredient: Ingredient;
   @ViewChild('f', { static: false }) slForm;
 
-  constructor(private shoppingListService: ShoppingListService) {}
+  constructor(private shoppingListService: ShoppingListService, private recipeService: RecipeService) {}
 
   ngOnInit(): void {
     this.shoppingSub = this.shoppingListService.selIngredient.subscribe(
@@ -64,7 +65,13 @@ export class ShopingEditComponent implements OnInit, OnDestroy {
     this.onClear()
   }
 
+  testSome(){
+    this.recipeService.deleteRecipe(1);
+  }
+
   ngOnDestroy(): void {
     this.shoppingSub.unsubscribe();
   }
+
+
 }
