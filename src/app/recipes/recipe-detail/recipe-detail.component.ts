@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Life } from 'src/app/services/life.service';
 import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { Ingredient } from 'src/app/shared/ingredient.model';
 import { ShoppingListService } from 'src/app/shopping-list/shopping-list.service';
@@ -17,7 +18,7 @@ export class RecipeDetailComponent implements OnInit {
   id;
 
 
-  constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute, private storageService: DataStorageService ) { }
+  constructor(private lifeService: Life ,private recipeService: RecipeService, private router: Router, private route: ActivatedRoute, private storageService: DataStorageService ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
@@ -44,8 +45,8 @@ export class RecipeDetailComponent implements OnInit {
     this.router.navigate(["/recipes"])
   }
 
-  onFetchRecipe(){
-    this.recipeService.fetchRecipes();
+  onChangeLife(){
+    this.lifeService.changeLife("Even better");
   }
 
 }

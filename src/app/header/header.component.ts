@@ -1,5 +1,6 @@
 import { Component, } from '@angular/core';
 import { RecipeService } from '../recipes/recipe.service';
+import { Life } from '../services/life.service';
 import { DataStorageService } from '../shared/data-storage.service';
 
 
@@ -11,7 +12,7 @@ import { DataStorageService } from '../shared/data-storage.service';
 export class HeaderComponent {
   collapsed = true;
 
-  constructor(private storageService: DataStorageService, private recipeService: RecipeService) {}
+  constructor(private storageService: DataStorageService, private lifeService: Life) {}
   // @Output() featureEmit = new EventEmitter<string>();
 
   // onSelect(feature: string) {
@@ -23,7 +24,11 @@ export class HeaderComponent {
   }
 
   onFetch() {
-    this.recipeService.deleteRecipe(1);
+    this.storageService.fetchRecipes();
+  }
+
+  onChangeLife(){
+    this.lifeService.changeLife("great")
   }
 
 }
